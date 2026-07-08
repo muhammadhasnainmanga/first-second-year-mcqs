@@ -377,8 +377,8 @@ async function showResult() {
                 body: JSON.stringify({
                     user_name: currentUser.username, //abhi idher id bhjni hai jo humne save hi nhi ki jb wo auto generatue hui database me
                     subject: selectedQuiz,
-                    score: score,
-                    achieve_score: wrongQuestionsSnapshot.length + score
+                    score: wrongQuestionsSnapshot.length + score,
+                    achieve_score: score
                 })
         });
 
