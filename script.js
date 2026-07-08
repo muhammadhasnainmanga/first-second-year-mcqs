@@ -32,6 +32,9 @@ const ViewBtn = document.getElementById("view-btn");
 const statBtn = document.getElementById("stat-btn");
 const ReviewBtn = document.getElementById("review-btn");
 
+//Leaderboard container
+const container = document.getElementById("leaderboard-section");
+
 const questionNumber = document.getElementById("question-number");
 const questionText = document.getElementById("question-text");
 const optionsContainer = document.getElementById("options-container");
@@ -422,6 +425,7 @@ function showResultScreen() {
     statBtn.classList.remove("hidden");
     ViewBtn.classList.remove("hidden");
     restartBtn.classList.remove("hidden");
+    container.classList.remove("hidden"); // leaderboard wapas dikhao
 
     ReviewBtn.classList.add("hidden");
     BackBtn.classList.add("hidden");
@@ -444,6 +448,8 @@ ViewBtn.addEventListener("click", () => {
     
     ReviewBtn.classList.remove("hidden");
     BackBtn.classList.remove("hidden");
+
+    container.classList.add("hidden"); // leaderboard hide karo
 
     wrongTableBody.innerHTML = "";
 
@@ -503,6 +509,7 @@ BackBtn.addEventListener("click", () => {
     // Result screen ke buttons wapas dikhao
     statBtn.classList.remove("hidden");
     restartBtn.classList.remove("hidden");
+    container.classList.remove("hidden"); // leaderboard wapas dikhao
 
     // View Wrong aur Practice Wrong — sirf tab dikhao jab wrong questions hon aur review mode nahi ho
     if (wrongQuestionsSnapshot.length > 0 && !isReviewMode) {
