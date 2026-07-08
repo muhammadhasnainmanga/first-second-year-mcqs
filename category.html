@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCQs</title>
+  <link rel="stylesheet" href="category.css" />
+</head>
+<body>
+ 
+  <!-- Animated particle canvas -->
+  <canvas id="bg-canvas"></canvas>
+ 
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <a class="site-title" href="#">MCQs</a>
+    <nav class="site-nav">
+      <a href="#" class="nav-link active">Home</a>
+      <a href="#" class="nav-link">Contact Us</a>
+      <a href="#" class="nav-link">Developer</a>
+      <a href="#" class="nav-link">Past Paper</a>
+      <a href="#" class="nav-link nav-link--highlight">Practice Now</a>
+    </nav>
+    <div class="nav-auth">
+      <button id="login-btn" class="btn btn-login">Login</button>
+      <button id="signup-btn" class="btn btn-signup">Sign Up</button>
+    </div>
+  </header>
+ 
+  <!-- HERO — full viewport height -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Class 12 &middot; Sindh Board</p>
+      <h1 class="hero-heading">
+        <span class="hero-line">Master Every</span>
+        <span class="hero-line hero-line--accent">Question.</span>
+      </h1>
+      <p class="hero-sub">Sharpen your prep with hand-picked MCQs across every subject &mdash; anytime, anywhere.</p>
+      <a href="#categories" class="hero-cta">Explore Subjects &#8595;</a>
+    </div>
+    <div class="hero-badge hero-badge--1">Physics</div>
+    <div class="hero-badge hero-badge--2">English</div>
+    <div class="hero-badge hero-badge--3">Computer</div>
+  </section>
+ 
+  <!-- CATEGORY GRID -->
+  <div class="category-page" id="categories">
+    <div class="category-header">
+      <span class="category-label">&#8212; Choose a Subject</span>
+    </div>
+    <div class="category-list">
+ 
+      <button id="chapter-btn" class="category-card">
+        <div class="card-inner">
+          <span class="category-title">Eng Paper MCQs</span>
+          <span class="category-desc">English paper chapters</span>
+        </div>
+        <span class="card-arrow">&#8599;</span>
+      </button>
+ 
+      <button id="poem-btn" class="category-card">
+        <div class="card-inner">
+          <span class="category-title">English Extra MCQs</span>
+          <span class="category-desc">Extended revision set</span>
+        </div>
+        <span class="card-arrow">&#8599;</span>
+      </button>
+ 
+      <button id="phy-btn" class="category-card">
+        <div class="card-inner">
+          <span class="category-title">Physics MCQs</span>
+          <span class="category-desc">Chapter-wise syllabus</span>
+        </div>
+        <span class="card-arrow">&#8599;</span>
+      </button>
+ 
+      <button id="comp-btn" class="category-card">
+        <div class="card-inner">
+          <span class="category-title">Comp MCQs</span>
+          <span class="category-desc">Computer Science topics</span>
+        </div>
+        <span class="card-arrow">&#8599;</span>
+      </button>
+
+      
+      <button id="pst-btn" class="category-card">
+        <div class="card-inner">
+          <span class="category-title">Pakistan Studies MCQs</span>
+          <span class="category-desc">Pakistan Studies topic</span>
+        </div>
+        <span class="card-arrow">&#8599;</span>
+      </button>
+      
+      <button id="math1-btn" class="category-card">
+        <div class="card-inner">
+          <span class="category-title">Fast Maths MCQs</span>
+          <span class="category-desc">Probability, Combination and Permutation topic</span>
+        </div>
+        <span class="card-arrow">&#8599;</span>
+      </button>
+
+      <button id="math2-btn" class="category-card">
+        <div class="card-inner">
+          <span class="category-title">Fast Maths MCQs</span>
+          <span class="category-desc">Sequence and Series topic</span>
+        </div>
+        <span class="card-arrow">&#8599;</span>
+      </button>
+
+      <button id="math3-btn" class="category-card">
+        <div class="card-inner">
+          <span class="category-title">Fast Maths MCQs</span>
+          <span class="category-desc">Quadratic Equations topic</span>
+        </div>
+        <span class="card-arrow">&#8599;</span>
+      </button>
+
+      <button id="math4-btn" class="category-card">
+        <div class="card-inner">
+          <span class="category-title">Fast Maths MCQs</span>
+          <span class="category-desc">Trigonometric Equations topic</span>
+        </div>
+        <span class="card-arrow">&#8599;</span>
+      </button>
+      
+    </div>
+    <p id="message"></p>
+  </div>
+
+  <script src="category.js"></script>
+
+</body>
+</html>

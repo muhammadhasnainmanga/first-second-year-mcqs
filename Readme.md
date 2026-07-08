@@ -1,0 +1,1 @@
+It is my first kindof fullstack project, nothing much complex to explain so yeah

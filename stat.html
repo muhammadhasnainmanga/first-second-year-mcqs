@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats - MCQs</title>
+    <link rel="stylesheet" href="stats.css">
+</head>
+<body>
+
+    <canvas id="bg-canvas"></canvas>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="stats-wrapper">
+
+        <div class="stats-container">
+
+            <div class="stats-header">
+                <h1>Time Report</h1>
+                <p class="stats-sub">Time taken per question — sorted slowest first</p>
+            </div>
+
+            <div class="quiz-divider"></div>
+
+            <table class="stats-table" id="stats-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Question</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="stats-body">
+                    <!-- filled by stats.js -->
+                </tbody>
+            </table>
+
+            <div class="stats-footer">
+                <button id="back-btn">← Back to Results</button>
+                <button id="sort-btn">Sort by Time ↑</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="stats.js"></script>
+</body>
+</html>

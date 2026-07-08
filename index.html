@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+    <canvas id="bg-canvas"></canvas>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+ 
+    <div class="page-wrapper">
+ 
+        <button id="logout-btn">Logout</button>
+ 
+        <div class="timer-container">
+            <div class="timer">
+                <span class="timer-label">Timer</span>
+                <h1 id="time">0</h1>
+            </div>
+        </div>
+ 
+        <div class="quiz-container">
+            <h1>MCQ Quiz App</h1>
+            <div class="quiz-divider"></div>
+ 
+            <!-- Start Screen -->
+            <div id="start-screen">
+                <p>Press the button below to start the quiz.</p>
+                <button id="start-btn">Start Quiz</button>
+            </div>
+ 
+            <!-- Quiz Screen -->
+            <div id="quiz-screen" class="hidden">
+                <h2 id="question-number"></h2>
+                <p id="question-text"></p>
+                <div id="options-container"></div>
+                <p id="feedback"></p>
+                <div class="nav-btns">
+                    <button id="back-btn" class="hidden">← Back</button>
+                    <button id="next-btn" class="hidden">Next Question</button>
+                    <button id="con-btn" class="hidden">Next -></button>
+                </div>
+            </div>
+ 
+            <!-- Result Screen -->
+            <div id="result-screen" class="hidden">
+ 
+                <!-- Score -->
+                <h2 id="score-text"></h2>
+                <div class="quiz-divider"></div>
+ 
+                <!-- Wrong Questions Table -->
+                <div id="wrong-section">
+                    <h3 id="wrong-heading">Questions You Got Wrong</h3>
+                    <table class="wrong-table" id="wrong-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Question</th>
+                                <th>Your Answer</th>
+                                <th>Right Answer</th>
+                            </tr>
+                        </thead>
+                        <tbody id="wrong-table-body"></tbody>
+                    </table>
+                </div>
+
+
+                <!--Leader board section-->
+                <div id="leaderboard-section" class ="hidden">
+                        <h3>Leaderboard</h3>
+                    <table class="leaderboard-table" id="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Name</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-body"></tbody>
+                    </table>  
+                </div>
+
+ 
+                <!-- Action Buttons -->
+                <div class="result-btns">
+                    <button id="restart-btn">Restart</button>
+                    <button id="view-btn">View Wrong</button>
+                        <button id="review-btn">Review Wrong</button>
+                        <button id="back-btn1">← Back to Results</button>
+                    <button id="stat-btn">View Stats</button>
+                </div>
+ 
+            </div>
+ 
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

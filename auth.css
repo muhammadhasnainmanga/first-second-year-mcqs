@@ -1,0 +1,267 @@
+/* =============================================
+   MCQs — auth.css
+   Login / Signup Pages
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* ---------- Variables ---------- */
+:root {
+  --purple-glow:   #7b2fff;
+  --purple-mid:    #3b1050;
+  --purple-soft:   #c084fc;
+  --purple-pastel: #e9d5ff;
+  --black-deep:    #07000f;
+  --glass-border:  rgba(255, 255, 255, 0.09);
+  --glass-strong:  rgba(192, 132, 252, 0.4);
+  --text-primary:  #f3e8ff;
+  --text-muted:    #a78bbc;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- Body — identical to home ---------- */
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--black-deep);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 16, 80, 0.9) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(33, 11, 44, 0.6) 0%, transparent 60%),
+    linear-gradient(180deg, #07000f 0%, #120020 50%, #07000f 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- Particle Canvas ---------- */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---------- Orbs ---------- */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatOrb 10s ease-in-out infinite;
+}
+.orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(123, 47, 255, 0.22), transparent 70%);
+  top: -150px; left: -100px;
+}
+.orb-2 {
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(59, 16, 80, 0.5), transparent 70%);
+  bottom: -100px; right: -80px;
+  animation-delay: -5s;
+}
+@keyframes floatOrb {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(30px) scale(1.05); }
+}
+
+/* ---------- Auth Container ---------- */
+.auth-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* ---------- Auth Box ---------- */
+.auth-box {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  padding: 28px 30px 24px;
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--glass-border);
+  border-top-color: rgba(192, 132, 252, 0.35);
+  border-radius: 16px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(123, 47, 255, 0.06);
+
+  animation: fadeUp 0.85s cubic-bezier(0.34, 1.1, 0.64, 1) both;
+}
+
+/* Top purple glow line */
+.auth-box::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 20%; right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--purple-glow), transparent);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Logo Pill ---------- */
+.auth-logo {
+  font-size: 5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #e9d5ff, #c084fc, #7b2fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  flex-shrink: 0;
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--purple-soft);
+  border: 1px solid rgba(192, 132, 252, 0.25);
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  margin-bottom: 1.1rem;
+  opacity: 0.75;
+}
+
+/* ---------- Heading ---------- */
+.auth-box h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+  background: linear-gradient(135deg, #f0e0ff 0%, #c084fc 45%, #7b2fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.auth-box > p {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin-bottom: 1.4rem;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Divider ---------- */
+.auth-box .auth-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.07), transparent);
+  margin-bottom: 1.3rem;
+}
+
+/* ---------- Form ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* ---------- Inputs ---------- */
+input {
+  padding: 11px 15px;
+  font-size: 0.88rem;
+  font-family: 'Nunito', sans-serif;
+  border-radius: 10px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  text-align: left;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+input::placeholder {
+  color: var(--text-muted);
+  font-weight: 300;
+  font-size: 0.82rem;
+}
+input:focus {
+  background: rgba(123, 47, 255, 0.07);
+  border-color: rgba(192, 132, 252, 0.4);
+  box-shadow: 0 0 0 3px rgba(123, 47, 255, 0.1);
+}
+
+/* ---------- Button ---------- */
+button[type="submit"] {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 0.78rem;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #7b2fff 0%, #3b1050 100%);
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.2s ease, background 0.3s ease;
+  box-shadow: 0 4px 20px rgba(123, 47, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+button[type="submit"]::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+button[type="submit"]:hover::after { left: 130%; }
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #9d5fff, #7b2fff);
+  box-shadow: 0 0 28px rgba(123, 47, 255, 0.55), 0 6px 18px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+button[type="submit"]:active { transform: translateY(0); }
+
+/* ---------- Bottom Text ---------- */
+.bottom-text {
+  color: var(--text-muted);
+  margin-top: 1.1rem;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+.bottom-text a {
+  color: var(--purple-soft);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+.bottom-text a:hover { color: var(--purple-pastel); }
+
+/* ---------- Message ---------- */
+#message {
+  margin-top: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-height: 16px;
+  color: var(--purple-soft);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .auth-box { padding: 24px 20px 20px; }
+  .auth-box h1 { font-size: 1.5rem; }
+}
