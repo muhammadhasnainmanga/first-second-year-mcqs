@@ -10,7 +10,7 @@ const port = 4000; // Use the port from .env or default to 4000
 
 // Middleware
 app.use(cors({
-    origin: "https://sindhboardmcqsapp.netlify.app/", // Allow all origins
+    origin: "https://sindhboardmcqsapp.netlify.app", // Allow all origins
 }));
 app.use(express.json());
 
