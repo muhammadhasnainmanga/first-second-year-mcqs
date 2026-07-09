@@ -14,10 +14,10 @@ app.use(express.json());
 
 // Database connection
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'quiz_app'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 db.connect((err) => {
@@ -160,6 +160,6 @@ app.post('/api/results/save', async (req, res) => {
 });
 
 // Start server
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+app.listen(process.env.port || 4000, () => {
+    console.log(`Server running on port ${process.env.port || 4000}`);
 });
