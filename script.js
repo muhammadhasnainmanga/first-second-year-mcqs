@@ -43,7 +43,7 @@ const feedback = document.getElementById("feedback");
 const savedUser = JSON.parse(localStorage.getItem("quizUser"));
 const timerBox = document.querySelector(".timer-container");
 
-const API_URL = "first-second-year-mcqs-production.up.railway.app/api"; // Base URL for API calls
+const API_URL = "https://first-second-year-mcqs-production.up.railway.app/api"; // Base URL for API calls
 
 if (!savedUser) {
     window.location.href = "login.html";

@@ -1,7 +1,7 @@
 const loginForm = document.getElementById("loginForm");
 const message = document.getElementById("message");
 
-const API_URL = "first-second-year-mcqs-production.up.railway.app/api"; // Base URL for API calls
+const API_URL = "https://first-second-year-mcqs-production.up.railway.app/api"; // Base URL for API calls
 
 loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
