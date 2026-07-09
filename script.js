@@ -43,6 +43,8 @@ const feedback = document.getElementById("feedback");
 const savedUser = JSON.parse(localStorage.getItem("quizUser"));
 const timerBox = document.querySelector(".timer-container");
 
+const API_URL = "first-second-year-mcqs-production.up.railway.app/api"; // Base URL for API calls
+
 if (!savedUser) {
     window.location.href = "login.html";
 }
@@ -92,7 +94,7 @@ async function loadQuestions() {
     const selectedQuiz = localStorage.getItem("selectedQuiz");
 
     try{
-        const response = await fetch(`http://localhost:4000/api/questions/${selectedQuiz}`);   
+        const response = await fetch(`${API_URL}/questions/${selectedQuiz}`);   
 
             if(!response.ok){
                 throw new Error(`Server responded with status ${response.status}`);
@@ -374,7 +376,7 @@ async function showResult() {
 
     try{
 
-        await fetch('http://localhost:4000/api/results/save', {
+        await fetch(`${API_URL}/results/save`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
@@ -386,7 +388,7 @@ async function showResult() {
         });
 
             
-        const LeaderboardRes = await fetch(`http://localhost:4000/api/results/leaderboard/${selectedQuiz}`);
+        const LeaderboardRes = await fetch(`${API_URL}/results/leaderboard/${selectedQuiz}`);
         const leaderboard = await LeaderboardRes.json();
         renderleaderboard(leaderboard, currentUser.username);
 

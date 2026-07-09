@@ -1,6 +1,8 @@
 const signupForm = document.getElementById("signupForm");
 const message = document.getElementById("message");
 
+const API_URL = "first-second-year-mcqs-production.up.railway.app/api"; // Base URL for API calls
+
 signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -24,7 +26,7 @@ signupForm.addEventListener("submit", async (e) => {
     // Here you would typically send the data to the backend for processing
 
     try{
-        const response = await fetch('http://localhost:4000/api/signup', {
+        const response = await fetch(`${API_URL}/signup`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ username, email, password })

@@ -1,6 +1,8 @@
 const loginForm = document.getElementById("loginForm");
 const message = document.getElementById("message");
 
+const API_URL = "first-second-year-mcqs-production.up.railway.app/api"; // Base URL for API calls
+
 loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -15,7 +17,7 @@ loginForm.addEventListener("submit", async (e) => {
     }
 
     try{
-        const response = await fetch('http://localhost:4000/api/login', {
+        const response = await fetch(`${API_URL}/login`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email, password})
