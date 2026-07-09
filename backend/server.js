@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 const app = express();
 
 const port = 4000; // Use the port from .env or default to 4000 
+
 // Middleware
 app.use(cors());
 app.use(express.json());
