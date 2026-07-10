@@ -56,10 +56,10 @@ if (localStorage.getItem("quizResults")) {
     questions = saved.questions;
     results = saved.times;
     score = saved.score;
-    wrongQuestionsSnapshot = saved.wrongSnapshot;
+    wrongQuestions = saved.wrongSnapshot;
     resultScreen.classList.remove("hidden");
     startScreen.classList.add("hidden");
-    showResultScreen();
+    showResult();
 }
 
 // Shuffle function
@@ -374,19 +374,22 @@ async function showResult() {
 
     const currentUser = JSON.parse(localStorage.getItem("quizUser"));
     const selectedQuiz = localStorage.getItem("selectedQuiz");
+    const saved = localStorage.getItem("quizResults");
 
     try{
 
-        await fetch(`${API_URL}/results/save`, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    user_name: currentUser.username, //abhi idher id bhjni hai jo humne save hi nhi ki jb wo auto generatue hui database me
-                    subject: selectedQuiz,
-                    score: wrongQuestionsSnapshot.length + score,
-                    achieve_score: score
-                })
-        });
+        if(!saved){
+            await fetch(`${API_URL}/results/save`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        user_name: currentUser.username, //abhi idher id bhjni hai jo humne save hi nhi ki jb wo auto generatue hui database me
+                        subject: selectedQuiz,
+                        score: wrongQuestionsSnapshot.length + score,
+                        achieve_score: score
+                    })
+            });
+        }
 
             
         const LeaderboardRes = await fetch(`${API_URL}/results/leaderboard/${selectedQuiz}`);

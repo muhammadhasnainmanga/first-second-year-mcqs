@@ -135,7 +135,7 @@ app.get('/api/results/leaderboard/:subject', async (req, res) => {
             FROM results
             JOIN users ON results.user_name = users.username
             WHERE results.subject = ?
-            ORDER BY results.score DESC
+            ORDER BY results.achieve_score DESC
             LIMIT 10`,
             [subject]
         );
