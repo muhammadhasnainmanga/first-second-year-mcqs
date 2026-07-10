@@ -65,6 +65,7 @@ pstBtn.addEventListener("click", () => {
 });
 
 login.addEventListener("click", () => {
+    localStorage.removeItem("quizUser");
     window.location.href = "login.html";
 });
 

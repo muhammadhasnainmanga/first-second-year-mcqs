@@ -567,8 +567,8 @@ logoutBtn.addEventListener("click", async () => {
     //     if(!response.ok){
     //         throw new Error(`Server responded with status ${response.status}`);
     //     }else{
-            localStorage.removeItem("quizUser");
-            window.location.href = "login.html";
+            localStorage.removeItem("selectedQuiz");
+            window.location.href = "category.html";
     //     }
 
     // }catch(err){
