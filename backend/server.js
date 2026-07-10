@@ -9,8 +9,23 @@ const app = express();
 const port = 4000; // Use the port from .env or default to 4000 
 
 // Middleware
+
+const allowedCors = [
+    "https://sindhboardmcqsapp.netlify.app",
+    "http://localhost:5500",
+    "http://127.0.0.1:5500",
+    "http://localhost:4000"
+];
+
+
 app.use(cors({
-    origin: "https://sindhboardmcqsapp.netlify.app", // Allow all origins
+    origin: (origin, callback) => {
+        if(!origin || allowedCors.includes(origin)){
+            callback(null,true);
+        }else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    }
 }));
 app.use(express.json());
 
