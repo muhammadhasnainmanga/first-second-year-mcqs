@@ -1,7 +1,7 @@
 const signupForm = document.getElementById("signupForm");
 const message = document.getElementById("message");
 
-const API_URL = "https://first-second-year-mcqs-production.up.railway.app/api"; // Base URL for API calls
+const API_URL = window.location.hostname === 'localhost' ? "http://localhost:4000/api" : "https://first-second-year-mcqs-production.up.railway.app/api";
 
 signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
