@@ -1,4 +1,4 @@
-const API_URL = window.location.hostname === 'localhost' ? "http://localhost:4000/api" : "https://first-second-year-mcqs-production.up.railway.app/api";
+const API_URL = window.location.hostname === '127.0.0.1' ? "http://localhost:4000/api" : "https://first-second-year-mcqs-production.up.railway.app/api";
 
 let time  = 0;
 let interval = null;
