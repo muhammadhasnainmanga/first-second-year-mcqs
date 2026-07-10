@@ -45,6 +45,8 @@ const feedback = document.getElementById("feedback");
 const savedUser = JSON.parse(localStorage.getItem("quizUser"));
 const timerBox = document.querySelector(".timer-container");
 
+//logout btn
+const logoutBtn = document.getElementById("logout-btn");
 
 if (!savedUser) {
     window.location.href = "login.html";
@@ -551,10 +553,27 @@ statBtn.addEventListener("click", () => {
 
 
 // Logout
-const logoutBtn = document.getElementById("logout-btn");
-logoutBtn.addEventListener("click", () => {
-    localStorage.removeItem("quizUser");
-    window.location.href = "login.html";
+
+logoutBtn.addEventListener("click", async () => {
+    // const user = JSON.parse(localStorage.getItem("quizUser"));
+
+    // try{
+    //     const response = await fetch(`${API_URL}/logout`,{
+    //         method: 'DELETE',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify({ username: user.username })
+    //     });
+
+    //     if(!response.ok){
+    //         throw new Error(`Server responded with status ${response.status}`);
+    //     }else{
+            localStorage.removeItem("quizUser");
+            window.location.href = "login.html";
+    //     }
+
+    // }catch(err){
+    //     console.error("Error during logout:", err);
+    // }
 });
 
 

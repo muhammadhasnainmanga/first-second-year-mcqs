@@ -177,6 +177,23 @@ app.post('/api/results/save', async (req, res) => {
 
 });
 
+// Logout endpoint
+// app.delete('/api/logout', async (req,res) => {
+//     const { username } = req.body;
+
+//     try{
+//         await db.promise().query(
+//             `DELETE FROM users WHERE username = ?`,
+//             [username]
+//         );
+
+//         res.status(201).json({message : "User logged out successfully"});
+
+//     }catch(err){
+//         res.status(500).json({error: err.message});
+//     }
+// });
+
 // Start server
 app.listen(process.env.port || 4000, () => {
     console.log(`Server running on port ${process.env.port || 4000}`);
