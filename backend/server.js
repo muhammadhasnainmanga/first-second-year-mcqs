@@ -11,7 +11,7 @@ const port = 4000; // Use the port from .env or default to 4000
 // Middleware
 
 const allowedCors = [
-    "https://sindhboardmcqsapp.netlify.app",
+    "https://sindhboardmcqapp.netlify.app",
     "http://localhost:5500",
     "http://127.0.0.1:5500",
     "http://localhost:4000"
@@ -27,6 +27,10 @@ app.use(cors({
         }
     }
 }));
+
+// app.use(cors({
+//     origin: process.env.ALLOWED_ORIGIN || "http://localhost:5500",
+// }));
 app.use(express.json());
 
 // Database connection
@@ -61,10 +65,10 @@ app.get('/api/questions/:subject', (req, res) => {
 
 // Second API endpoint — users data signup
 app.post('/api/signup', async (req,res) => {
-    const { username, email, password } = req.body;
+    const { username, email, password } = req.body;  //data from frontend 1
     
     if( !username || !email || !password ) {
-        return res.status(400).json({error : "All fields are required"});
+        return res.status(400).json({error : "All fields are required"});  //validation for empty fields 2
     }
 
     try {
@@ -73,13 +77,13 @@ app.post('/api/signup', async (req,res) => {
         [email, username]);
 
         if(existingUser.length > 0) {
-            return res.status(409).json({error : "Username or Email already taken"});
+            return res.status(409).json({error : "Username or Email already taken"});  //user already exists 3
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(password, 10); //hashing passwrord 4
 
         await db.promise().query(
-            'Insert into users (username, email, password_hash) values (?, ?, ?)',
+            'Insert into users (username, email, password_hash) values (?, ?, ?)',  //saving user data into database 5
             [username, email, hashedPassword]
         );
 
@@ -93,29 +97,29 @@ app.post('/api/signup', async (req,res) => {
 
 //Third api call - Login logic
 app.post('/api/login', async (req,res) => {
-    const {email, password} = req.body;
+    const {email, password} = req.body;  //data from frontend 1
 
     if(!email || !password){
-        return res.status(400).json({error : "Email or Password are required"});
+        return res.status(400).json({error : "Email or Password are required"}); //validation for empty fields 2
     }
 
     try{
         const [row] = await db.promise().query('Select * from users where email = ?', [email]);
 
         if(row.length === 0){
-            return res.status(401).json({error : "Invalid email or password"});
+            return res.status(401).json({error : "Invalid email or password"});  // no user exists with the provided email 3
         }
 
         const user = row[0];
         const PasswordMatch = await bcrypt.compare(password, user.password_hash);
 
         if(!PasswordMatch){
-            return res.status(401).json({error : "Invalid email or password"});
+            return res.status(401).json({error : "Invalid email or password"});  // wrong password 4
         }
 
         res.status(200).json({
             id: user.id, 
-            username: user.username, 
+            username: user.username,  //returning response with user data 5
             email: user.email
         });
 
